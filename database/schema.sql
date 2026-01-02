@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS faculty_db;
+USE faculty_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('ADMIN', 'LECTURER', 'STUDENT') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS students (
+    student_id VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    department VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS lecturers (
+    lecturer_id VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    faculty VARCHAR(50)
+);
